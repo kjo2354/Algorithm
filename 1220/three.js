@@ -1,22 +1,18 @@
-/**
- * @param {number} big
- * @param {number} medium
- * @param {number} small
- */
- var ParkingSystem = function(big, medium, small) {
-    
-};
-
-/** 
- * @param {number} carType
- * @return {boolean}
- */
-ParkingSystem.prototype.addCar = function(carType) {
-    
-};
-
-/** 
- * Your ParkingSystem object will be instantiated and called as such:
- * var obj = new ParkingSystem(big, medium, small)
- * var param_1 = obj.addCar(carType)
- */
+function findLongestSubstring(str) {
+    let longest = 0;
+    let seen = {};
+    let start = 0;
+   
+    for (let i = 0; i < str.length; i++) {
+      let char = str[i];
+      if (seen[char]) {
+        start = Math.max(start, seen[char]);
+      }
+      // index - beginning of substring + 1 (to include current in count)
+      longest = Math.max(longest, i - start + 1);
+      // store the index of the next char so as to not double count
+      seen[char] = i + 1;
+    }
+    return longest;
+  }
+  findLongestSubstring('longestsubstring') // 8
